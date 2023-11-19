@@ -1,4 +1,5 @@
 package com.example.mipt_4_activitiesandstorage
+
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
@@ -7,7 +8,6 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
-import com.example.mipt_4_activitiesandstorage.R
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 

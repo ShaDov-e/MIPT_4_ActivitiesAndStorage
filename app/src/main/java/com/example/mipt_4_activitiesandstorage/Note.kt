@@ -2,7 +2,7 @@ package com.example.mipt_4_activitiesandstorage
 import android.os.Parcel
 import android.os.Parcelable
 
-data class Note(val name: String, val content: String) : Parcelable {
+data class Note(var name: String, val content: String) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString()!!,
         parcel.readString()!!

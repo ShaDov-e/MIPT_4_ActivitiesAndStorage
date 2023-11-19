@@ -38,4 +38,29 @@
             android:text="Delete Note"
             android:textSize="16sp"/>
     </LinearLayout>
+
+    <!-- Add these TextView elements to display the details of the selected note -->
+    <TextView
+        android:id="@+id/textViewSelectedNoteName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Note Name:"
+        android:textSize="18sp"
+        android:background="@color/yellowBackgroundColor"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:visibility="gone"/> <!-- Initially set to gone -->
+
+    <TextView
+        android:id="@+id/textViewSelectedNoteContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Note Content:"
+        android:textSize="18sp"
+        android:layout_below="@+id/textViewSelectedNoteName"
+        android:background="@color/yellowBackgroundColor"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:visibility="gone"/> <!-- Initially set to gone -->
+
 </RelativeLayout>
