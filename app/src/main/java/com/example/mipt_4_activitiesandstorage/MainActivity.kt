@@ -1,3 +1,4 @@
+package com.example.mipt_4_activitiesandstorage
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -72,8 +73,4 @@ class MainActivity : AppCompatActivity() {
         }
         return noteNames
     }
-}
-
-private fun Intent.putExtra(s: String, selectedNote: Note) {
-
 }

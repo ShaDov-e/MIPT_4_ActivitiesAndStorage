@@ -1,3 +1,4 @@
+package com.example.mipt_4_activitiesandstorage
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
@@ -43,7 +44,8 @@ class DeleteNoteActivity : AppCompatActivity() {
 
         val btnDelete: Button = findViewById(R.id.btnDelete)
         btnDelete.setOnClickListener {
-            deleteNote(spinner.selectedItemPosition)
+            val selectedNotePosition = spinner.selectedItemPosition
+            deleteNote(selectedNotePosition)
         }
     }
 
