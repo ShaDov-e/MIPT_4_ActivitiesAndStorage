@@ -31,25 +31,18 @@ class AddNoteActivity : AppCompatActivity() {
         val name = etNoteName.text.toString().trim()
         val content = etNoteContent.text.toString().trim()
 
-        // Validate input
         if (name.isNotEmpty() && content.isNotEmpty()) {
             val gson = Gson()
             val note = Note(name, content)
 
-            // Load existing notes
             val notesJson = sharedPreferences.getString("notes", null)
             val type = object : TypeToken<ArrayList<Note>>() {}.type
             val notesList = gson.fromJson<ArrayList<Note>>(notesJson, type) ?: ArrayList()
 
-            // Add the new note
             notesList.add(note)
-
-            // Save updated notes to SharedPreferences
             val editor = sharedPreferences.edit()
             editor.putString("notes", gson.toJson(notesList))
             editor.apply()
-
-            // Finish the activity
             finish()
         }
     }

@@ -26,10 +26,8 @@ class MainActivity : AppCompatActivity() {
 
         sharedPreferences = getSharedPreferences("NotesPrefs", MODE_PRIVATE)
 
-        // Load notes from SharedPreferences
         loadNotes()
 
-        // Initialize ListView and ArrayAdapter
         val listView: ListView = findViewById(R.id.listView)
         adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, getNoteNames())
         listView.adapter = adapter
@@ -43,18 +41,15 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, DeleteNoteActivity::class.java))
         }
 
-        // Handle item click in the ListView
         listView.setOnItemClickListener { _, _, position, _ ->
             val selectedNote = notesList[position]
 
-            // Display the selected note details
             val selectedNoteNameTextView: TextView = findViewById(R.id.textViewSelectedNoteName)
             val selectedNoteContentTextView: TextView = findViewById(R.id.textViewSelectedNoteContent)
 
             selectedNoteNameTextView.text = "Note Name: ${selectedNote.name}"
             selectedNoteContentTextView.text = "Note Content: ${selectedNote.content}"
 
-            // Make the details visible
             selectedNoteNameTextView.visibility = View.VISIBLE
             selectedNoteContentTextView.visibility = View.VISIBLE
         }

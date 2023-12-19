@@ -22,23 +22,18 @@ class DeleteNoteActivity : AppCompatActivity() {
 
         sharedPreferences = getSharedPreferences("NotesPrefs", MODE_PRIVATE)
 
-        // Load notes from SharedPreferences
         loadNotes()
 
-        // Initialize Spinner and ArrayAdapter
         val spinner: Spinner = findViewById(R.id.spinnerNotes)
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, getNoteNames())
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = adapter
 
-        // Handle item selection in the Spinner
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-                // Nothing to do here
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
-                // Nothing to do here
             }
         }
 
@@ -66,16 +61,12 @@ class DeleteNoteActivity : AppCompatActivity() {
 
     private fun deleteNote(position: Int) {
         if (position >= 0 && position < notesList.size) {
-            // Remove the selected note
             notesList.removeAt(position)
 
-            // Save updated notes to SharedPreferences
             val editor = sharedPreferences.edit()
             val gson = Gson()
             editor.putString("notes", gson.toJson(notesList))
             editor.apply()
-
-            // Finish the activity
             finish()
         }
     }
